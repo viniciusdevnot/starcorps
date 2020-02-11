@@ -1,0 +1,11 @@
+<li class="list-group-item" [ngClass]="{'list-item-success' : completed}">
+    <div class="form-check d-inline">
+        <input type="checkbox" class="form-check-input" id="complete" (change)="onChange()">
+        <label for="complete" class="form-check-label lead">{{todoInput.title}}</label>
+    </div>
+    <div class="float-right">
+        <span class="mx-3">{{todoInput.date | date}}</span>
+        <i class="fa fa-heart mx-3"></i>
+        <button class="btn btn-danger btn-sm mx-3" (click)="onCliCk()">x</button>
+    </div>
+</li>
