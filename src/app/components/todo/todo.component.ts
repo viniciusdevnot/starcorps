@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TodoService } from 'src/app/services/todo.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-todo',
@@ -10,23 +12,33 @@ export class TodoComponent implements OnInit {
 
 completed: boolean = false;
 
-  constructor() { }
+constructor(public todoService: TodoService, private deletePopup: ToastrService) { }
 
   ngOnInit(): void {
   }
 
-  onCliCk(){
-    this.completed = !this.completed;
-  }
-
   onChange(){
-
+    console.log("changed");
+    this.completed = !this.completed;
+    this.completed? this.deletePopup.success(`Todo succesfully completed`, 'completed') : '';
   }
 
-  addClass(){
+  onCliCk(e){
+    console.log("Clicked");
+    console.log(e);
+  }
+
+  toggleClass(){
     if(this.completed){
-      return 'list-item-success';
+      // return 'list-item-success';
+      return {'list-group-item-success' :this.completed, 'border-primary' :this.completed};
+
     }
+  }
+
+  deleteTodo(item){
+    this.todoService.deleteTodo(item);
+    this.deletePopup.error(`Todo ${item.id} Deleted!`, 'Deleted Successfuly');
   }
 
 }
