@@ -40,7 +40,12 @@ export class TodoComponent implements OnInit {
   }
    removeHandler(pessoaId: number): void{
       this.todoService.deletePeople(pessoaId).subscribe();
-      this.router.navigate(['/']);
+      this.toasterService.success('Pessoa excluida com sucesso');
+      setTimeout(()=>{                           // <<<---using ()=> syntax
+        window.location.reload();
+    }, 2000);
+
+
     }
 
     editForm(){
