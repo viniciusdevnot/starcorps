@@ -56,7 +56,7 @@ export class TodoComponent implements OnInit {
   onChange() {
     console.log("changed");
     this.completed = !this.completed;
-    this.completed ? this.toasterService.success(`Todo succesfully completed`, 'completed') : '';
+    this.completed ? this.toasterService.success(`Item selecionado`, 'Feito') : '';
   }
 
   onCliCk(e) {
