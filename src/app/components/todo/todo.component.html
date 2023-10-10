@@ -1,26 +1,28 @@
 <li class="list-group-item container" [ngClass]="toggleClass()">
+
     <div class="form-check d-inline principal">
+
         <input type="checkbox" class="form-check-input" id="complete" (change)="onChange()">
         <label for="complete" class="form-check-label lead">{{todoInput.id}}</label>
     </div>
     <div class="form-check principal">
-      <h3>Nome:</h3>
+
       <label for="complete" class="form-check-label lead labelP">{{todoInput.nome}}</label>
     </div>
     <div class="form-check principal">
-      <h3>Email:</h3>
+
       <label for="complete" class="form-check-label lead labelP">{{todoInput.email}}</label>
     </div>
     <div class="form-check principal">
-      <h3>Telefone:</h3>
+
       <label for="complete" class="form-check-label lead labelP">{{todoInput.telefone}}</label>
     </div>
     <div class="form-check principal">
-      <h3>Idade:</h3>
+
      <label for="complete" class="form-check-label lead labelP">{{todoInput.idade}}</label>
     </div>
     <div class="form-check  principal">
-      <h3>Data de nascimento:</h3>
+
       <label for="complete" class="form-check-label lead labelP">{{todoInput.dataNascimento | date: 'dd/mm/yyyy' }}</label>
     </div>
 
