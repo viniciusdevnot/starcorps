@@ -1,20 +1,14 @@
-<!-- <p>todo-list works!</p>
-<ul *ngFor="let todo of todoList">
-    // | date is pipe to formate date
-<li *ngIf="todo.title !== 'Todo One'">{{todo.title}} {{todo.date | date}}</li>
-</ul> -->
 <div class="card shadow" *ngIf="viewList">
-    <h5 class="card-header" style="font-size: 1.4rem;
-      font-weight: 600;
+    <h5 class="card-header" style="font-size: 1.3rem;
+      font-weight: 500;
       font-family: 'Courier New', Courier, monospace;
       display: flex;
       justify-content: center;
+      color: blue;
       ">Lista de pessoas</h5>
     <div class="card-body">
         <ul class="list-group" *ngFor="let row of lista">
-
             <app-todo [todoInput]="row"></app-todo>
-
         </ul>
     </div>
 </div>
@@ -22,11 +16,8 @@
 <div class="card shadow" *ngIf="!viewList">
     <h5 class="card-header">Lista de pessoas</h5>
     <div class="card-body">
-        <!-- <ul class="list-group" *ngFor="let todo of todoService.todoList"> -->
         <ul class="list-group" *ngFor="let row of lista">
-
             <app-todo [todoInput]="row"></app-todo>
-
         </ul>
     </div>
 </div>
