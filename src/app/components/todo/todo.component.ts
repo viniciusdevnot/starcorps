@@ -81,7 +81,7 @@ export class TodoComponent implements OnInit {
     this.todoInput.isFavorite = !this.todoInput.isFavorite;
     if (this.todoInput.isFavorite) {
 
-      this.toasterService.success('Todo Added to Favorite');
+      this.toasterService.success('Pessoa adicionada a favoritos');
 
       this.todoService.fav.unshift(this.todoInput);
 
@@ -89,7 +89,7 @@ export class TodoComponent implements OnInit {
 
     }
     else {
-      this.toasterService.error('Todo Removed from Favorite');
+      this.toasterService.error('Pessoa removida de favoritos');
       let index = this.todoService.todoList.indexOf(this.todo);
       this.todoService.fav.splice(index, 1);
 
