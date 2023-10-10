@@ -4,23 +4,23 @@
 <li *ngIf="todo.title !== 'Todo One'">{{todo.title}} {{todo.date | date}}</li>
 </ul> -->
 <div class="card shadow" *ngIf="viewList">
-    <h5 class="card-header">My Todo List</h5>
+    <h5 class="card-header">Lista de pessoas</h5>
     <div class="card-body">
-        <ul class="list-group" *ngFor="let todo of todoService.todoList">
+        <ul class="list-group" *ngFor="let row of lista">
 
-            <app-todo [todoInput]="todo"></app-todo>
+            <app-todo [todoInput]="row"></app-todo>
 
         </ul>
     </div>
 </div>
 
 <div class="card shadow" *ngIf="!viewList">
-    <h5 class="card-header">My Todo List</h5>
+    <h5 class="card-header">Lista de pessoas</h5>
     <div class="card-body">
         <!-- <ul class="list-group" *ngFor="let todo of todoService.todoList"> -->
-        <ul class="list-group" *ngFor="let todo of todoService.fav">
+        <ul class="list-group" *ngFor="let row of lista">
 
-            <app-todo [todoInput]="todo"></app-todo>
+            <app-todo [todoInput]="row"></app-todo>
 
         </ul>
     </div>

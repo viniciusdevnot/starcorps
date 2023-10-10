@@ -1,17 +1,29 @@
 <li class="list-group-item" [ngClass]="toggleClass()">
-    <!-- <li class="list-group-item" [ngClass]="{'list-group-item-success' : completed, 'border-primary' : completed}"> -->
-    <!-- <li class="list-group-item" [ngStyle]="{'background-color: 'completed? 'red : green'}"> -->
-    <!-- <li class="list-group-item" [ngClass]="completed ? 'list-group-item-success'  : 'list-group-item-danger' "> -->
-    <!-- <li class="list-group-item" [class.list-group-item-success]="completed"> -->
     <div class="form-check d-inline">
         <input type="checkbox" class="form-check-input" id="complete" (change)="onChange()">
-        <label for="complete" class="form-check-label lead">{{todoInput.title}}</label>
+        <label for="complete" class="form-check-label lead">{{todoInput.id}}</label>
     </div>
+    <div class="form-check d-inline">
+      <label for="complete" class="form-check-label lead">{{todoInput.nome}}</label>
+    </div>
+    <div class="form-check d-inline">
+      <label for="complete" class="form-check-label lead">{{todoInput.email}}</label>
+    </div>
+    <div class="form-check d-inline">
+      <label for="complete" class="form-check-label lead">{{todoInput.telefone}}</label>
+    </div>
+    <div class="form-check d-inline">
+     <label for="complete" class="form-check-label lead">{{todoInput.idade}}</label>
+    </div>
+    <div class="form-check d-inline">
+      <label for="complete" class="form-check-label lead">{{todoInput.dataNascimento | date: 'dd/mm/yyyy' }}</label>
+    </div>
+
     <div class="float-right">
         <span class="mx-3">{{todoInput.date | date}}</span>
-        <i class="fa fa-heart mx-3 btn" (click)='isFavorite()' [ngClass]="todoInput.isFavorite? 'text-danger' : '' "></i>
-        <!-- <button class="btn btn-danger btn-sm mx-3" (click)="onCliCk($event)">x</button> -->
-        <!-- <button class="btn btn-danger btn-sm mx-3" (click)="todoService.deleteTodo(todoInput)">x</button> -->
-        <button class="btn btn-danger btn-sm mx-3" (click)="deleteTodo(todoInput)">x</button>
+        <button class="buttonFavorite"><i (click)='isFavorite()' [ngClass]="todoInput.isFavorite? 'text-danger' : '' "><mat-icon>favorite_border</mat-icon></i></button>
+        <button class="buttonUpdate" (click)="editForm()"><mat-icon>edit</mat-icon></button>
+        <button class="buttonDelete" (click)="removeHandler(todoInput.pessoaId!)"><mat-icon>delete_outline</mat-icon></button>
     </div>
 </li>
+<i class="fa-solid fa-pen-to-square"></i>

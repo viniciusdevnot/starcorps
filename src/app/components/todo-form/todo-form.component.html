@@ -1,15 +1,46 @@
 <div class="card shadow text-center mb-5">
-    <div class="card-header bg-primary text-light">
-        <h4>ADD TODO</h4>
-    </div>
+  <div class="card-header bg-primary text-light">
+      <h4>Novo</h4>
+  </div>
 
-    <div class="card-body">
-        <form #addTodo="ngForm" (submit)="onSubmit()">
-            <div class="form-group">
-                <input type="text" name="todo" class="form-control" placeholder="Add Todo . . ." [(ngModel)]="todo" required>
-            </div>
-            <button class="btn btn-primary" [disabled]="addTodo.invalid"> ADD </button>
-        </form>
-        <!-- {{todo}} -->
-    </div>
+  <div class="card-body">
+<form (ngSubmit)="onSubmit()"[formGroup]="formCliente" #formDir="ngForm">
+
+<div class="form-group">
+  <label for="nome">Nome</label>
+  <input type="text" class="form-control" name="name" id="nome" formControlName="nome">
+</div>
+
+<div class="form-group">
+  <label for="Data de nascimento">Data de nascimento</label>
+  <input class="form-control" type="date" name="Data de nascimento" id="dataNascimento" formControlName="dataNascimento">
+
+</div>
+<div class="form-group">
+  <label for="idade">Idade</label>
+  <input class="form-control" type="number" name="idade" id="idade" formControlName="idade">
+
+</div>
+
+<div class="form-group">
+  <label for="email">Email</label>
+  <input class="form-control" type="email" name="email" id="email" formControlName="email">
+
+</div>
+<div class="form-group">
+  <label for="telefone">Telefone</label>
+  <input class="form-control" type="fone" name="telefone" id="telefone" formControlName="telefone">
+
+</div>
+<div class="form-group">
+  <label for="celular">Celular</label>
+  <input class="form-control" type="fone" name="celular" id="celular" formControlName="celular">
+
+</div>
+
+<input type="submit" class="btn btn-primary mt-4" value="Salvar">
+<a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
+</form>
+      <!-- {{todo}} -->
+  </div>
 </div>

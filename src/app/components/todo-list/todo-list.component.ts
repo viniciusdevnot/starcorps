@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { Todo } from 'src/app/models/Todo';
 import { TodoService } from 'src/app/services/todo.service';
 import { ActivatedRoute } from '@angular/router';
-import { Todo } from 'src/app/models/Todo';
+import { Todo, Todoo } from 'src/app/models/Todo';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,38 +10,16 @@ import { Todo } from 'src/app/models/Todo';
   styles: []
 })
 export class TodoListComponent implements OnInit {
+  listarPessoa!: any[];
+  lista: any[] = [];
 
-  // todoList: Todo[] = [
-  //   {
-  //     id:1,
-  //     title: 'Todo One',
-  //     isCompleted: false,
-  //     isFavorite: false,
-  //     date: new Date('4-15-2020')
-  //   },
-  //   {
-  //     id:1,
-  //     title: 'Todo Two',
-  //     isCompleted: false,
-  //     isFavorite: false,
-  //     date: new Date('5-15-2020')
-  //   },
-  //   {
-  //     id:1,
-  //     title: 'Todo Three',
-  //     isCompleted: false,
-  //     isFavorite: false,
-  //     date: new Date('6-15-2020')
-  //   }
-  // ];
-
-  // constructor() { }
   constructor(public todoService: TodoService, public route: ActivatedRoute) { }
 
   viewList: boolean = true;
 
 
   ngOnInit(): void {
+    this.listarPessoas();
     this.route.url.subscribe(data => {
       // console.log(data[0].path);
       if (data[0].path == 'list') {
@@ -52,6 +30,16 @@ export class TodoListComponent implements OnInit {
         this.todoService.updateFav();
         console.log()
       }
+    })
+  }
+
+  listarPessoas(){
+    this.todoService.getPeople().subscribe(allPessoas => {
+      this.lista = allPessoas.data;
+      console.log("aqui", this.lista)
+      console.log(allPessoas)
+    }, err => {
+      console.log('erro ao listas pessoas', err);
     })
   }
 
