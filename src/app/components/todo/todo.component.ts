@@ -43,7 +43,7 @@ export class TodoComponent implements OnInit {
       this.toasterService.success('Pessoa excluida com sucesso');
       setTimeout(()=>{                           // <<<---using ()=> syntax
         window.location.reload();
-    }, 2000);
+    }, 1000);
 
 
     }
